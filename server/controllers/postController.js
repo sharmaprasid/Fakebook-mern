@@ -3,16 +3,16 @@ const User= require("../models/User");
 
 const createPost = async (req, res) => {
     try {
-      const { userId, description, picturePath } = req.body;
+      const { userId, description, picturepath } = req.body;
       const user = await User.findById(userId);
       const newPost = new Post({
         userId,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        firstname: user.firstname,
+        lastname: user.lastname,
         location: user.location,
         description,
-        userPicturePath: user.picturePath,
-        picturePath,
+        userPicturepath: user.picturepath,
+        picturepath,
         likes: {},
         comments: [],
       });

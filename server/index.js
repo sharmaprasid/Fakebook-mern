@@ -12,8 +12,8 @@ const path= require('path');
 const authRoutes=require('./routes/auth')
 const userRoutes=require('./routes/user')
 const postRoutes= require('./routes/post')
-const {register}= require('./controllers/auth');
-const {createPost}= require('./controllers/post');
+const authController= require('./controllers/authController');
+const postController= require('./controllers/postController');
 const verifyToken = require("./middleware/auth");
 
 
@@ -43,8 +43,8 @@ const storage = multer.diskStorage({
   
   const upload = multer({ storage })
   //routes with file
-  app.post('/auth/register', upload.single("picture"),register);
-  app.post('/posts',verifyToken,upload.single("picture"),createPost);
+  app.post('/auth/register', upload.single("picture"),authController.register);
+  app.post('/posts',verifyToken,upload.single("picture"),postController.createPost);
   // routes
   app.post('/auth',authRoutes);
   app.post('/users',userRoutes);

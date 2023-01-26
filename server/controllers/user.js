@@ -49,7 +49,7 @@ const addRemoveFriend = async (req, res) => {
       );
       res.status(200).json(formattedFriends);
     } catch (error) {
-      res.status(404).json({ errorr: error.message });
+      res.status(404).json({ error: error.message });
     }
   };
 module.exports={getUser,getUserFriends,addRemoveFriend};
