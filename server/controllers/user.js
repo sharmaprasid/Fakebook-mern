@@ -24,7 +24,7 @@ const getUserFriends = async (req, res) => {
     );
     res.status(200).json(formattedFriends);
   } catch (error) {
-    res.status(404).json({ msg: error.msg });
+    res.status(404).json({ error: error.message});
   }
 };
 
@@ -49,7 +49,7 @@ const addRemoveFriend = async (req, res) => {
       );
       res.status(200).json(formattedFriends);
     } catch (error) {
-      res.status(404).json({ msg: error.msg });
+      res.status(404).json({ errorr: error.message });
     }
   };
-module.exports={getUser,getUserFriends}
+module.exports={getUser,getUserFriends,addRemoveFriend};
